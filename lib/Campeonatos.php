@@ -25,14 +25,21 @@ class Campeonato{
         $resultado=$db->query(sql);
         $i=0;
         while($fila = $resultado->fetch_assoc()){
-            $oCampeonato= new Campeonato()
+            $oCampeonato= new Campeonato($fila["idcampeonato"],
+                                            $fila["codigo"],
+                                            $fila["nombre"],
+                                            $fila["fechainicio"],
+                                            $fila["fechatermino"],
+                                            $fila["cantidadpartidos"]
+                                            );
+                    
+             return $oCampeonato;       
         }
+       
+        
+       
         
         
-        
-        $oCampeonato=new Campeonato();
-        
-        return $oCampeonato;
     }
     
 }
